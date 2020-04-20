@@ -220,7 +220,7 @@ function updateChart(chart, data) {
 }
 
 getData('Home', reportDays, function (data) {
-    addChart('myChart', data.title, data, function (chart) {
+    addChart('metricChart', data.title, data, function (chart) {
         setInterval(function () {
             getData('Home', reportDays, function (data) {
                 updateChart(chart, data);
@@ -230,7 +230,7 @@ getData('Home', reportDays, function (data) {
 });
 
 getData('Car Insurance', reportDays, function (data) {
-    addChart('myChart1', data.title, data, function (chart) {
+    addChart('metricChart1', data.title, data, function (chart) {
         setInterval(function () {
             getData('Car Insurance', reportDays, function (data) {
                 updateChart(chart, data);
@@ -240,7 +240,7 @@ getData('Car Insurance', reportDays, function (data) {
 });
 
 getData('Multi Car', reportDays, function (data) {
-    addChart('myChart2', data.title, data, function (chart) {
+    addChart('metricChart2', data.title, data, function (chart) {
         setInterval(function () {
             getData('Multi Car', reportDays, function (data) {
                 updateChart(chart, data);
@@ -250,7 +250,7 @@ getData('Multi Car', reportDays, function (data) {
 });
 
 getData('Claims', reportDays, function (data) {
-    addChart('myChart3', data.title, data, function (chart) {
+    addChart('metricChart3', data.title, data, function (chart) {
         setInterval(function () {
             getData('Claims', reportDays, function (data) {
                 updateChart(chart, data);
@@ -260,7 +260,7 @@ getData('Claims', reportDays, function (data) {
 });
 
 getData('Home Insurance', reportDays, function (data) {
-    addChart('myChart4', data.title, data, function (chart) {
+    addChart('metricChart4', data.title, data, function (chart) {
         setInterval(function () {
             getData('Home Insurance', reportDays, function (data) {
                 updateChart(chart, data);
@@ -270,7 +270,7 @@ getData('Home Insurance', reportDays, function (data) {
 });
 
 getData('Smartmiles', reportDays, function (data) {
-    addChart('myChart5', data.title, data, function (chart) {
+    addChart('metricChart5', data.title, data, function (chart) {
         setInterval(function () {
             getData('Smartmiles', reportDays, function (data) {
                 updateChart(chart, data);
@@ -280,7 +280,7 @@ getData('Smartmiles', reportDays, function (data) {
 });
 
 getData('Help', reportDays, function (data) {
-    addChart('myChart6', data.title, data, function (chart) {
+    addChart('metricChart6', data.title, data, function (chart) {
         setInterval(function () {
             getData('Help', reportDays, function (data) {
                 updateChart(chart, data);
@@ -290,7 +290,7 @@ getData('Help', reportDays, function (data) {
 });
 
 getData('About Us', reportDays, function (data) {
-    addChart('myChart7', data.title, data, function (chart) {
+    addChart('metricChart7', data.title, data, function (chart) {
         setInterval(function () {
             getData('About Us', reportDays, function (data) {
                 updateChart(chart, data);
@@ -300,9 +300,19 @@ getData('About Us', reportDays, function (data) {
 });
 
 getData('Contact Us', reportDays, function (data) {
-    addChart('myChart8', data.title, data, function (chart) {
+    addChart('metricChart8', data.title, data, function (chart) {
         setInterval(function () {
             getData('Contact Us', reportDays, function (data) {
+                updateChart(chart, data);
+            });
+        }, refreshTime);
+    });
+});
+
+getData('Coronavirus FAQs', reportDays, function (data) {
+    addChart('metricChart9', data.title, data, function (chart) {
+        setInterval(function () {
+            getData('Coronavirus FAQs', reportDays, function (data) {
                 updateChart(chart, data);
             });
         }, refreshTime);
@@ -314,7 +324,7 @@ reportDaysDisplay.addEventListener('change', function (e) {
     reportDays = e.target.value;
 
     getData('Home', reportDays, function (data) {
-        addChart('myChart', data.title, data, function (chart) {
+        addChart('metricChart', data.title, data, function (chart) {
             setInterval(function () {
                 getData('Home', reportDays, function (data) {
                     updateChart(chart, data);
@@ -324,7 +334,7 @@ reportDaysDisplay.addEventListener('change', function (e) {
     });
 
     getData('Car Insurance', reportDays, function (data) {
-        addChart('myChart1', data.title, data, function (chart) {
+        addChart('metricChart1', data.title, data, function (chart) {
             setInterval(function () {
                 getData('Car Insurance', reportDays, function (data) {
                     updateChart(chart, data);
@@ -334,7 +344,7 @@ reportDaysDisplay.addEventListener('change', function (e) {
     });
 
     getData('Multi Car', reportDays, function (data) {
-        addChart('myChart2', data.title, data, function (chart) {
+        addChart('metricChart2', data.title, data, function (chart) {
             setInterval(function () {
                 getData('Multi Car', reportDays, function (data) {
                     updateChart(chart, data);
@@ -344,7 +354,7 @@ reportDaysDisplay.addEventListener('change', function (e) {
     });
 
     getData('Claims', reportDays, function (data) {
-        addChart('myChart3', data.title, data, function (chart) {
+        addChart('metricChart3', data.title, data, function (chart) {
             setInterval(function () {
                 getData('Claims', reportDays, function (data) {
                     updateChart(chart, data);
@@ -354,7 +364,7 @@ reportDaysDisplay.addEventListener('change', function (e) {
     });
 
     getData('Home Insurance', reportDays, function (data) {
-        addChart('myChart4', data.title, data, function (chart) {
+        addChart('metricChart4', data.title, data, function (chart) {
             setInterval(function () {
                 getData('Home Insurance', reportDays, function (data) {
                     updateChart(chart, data);
@@ -364,7 +374,7 @@ reportDaysDisplay.addEventListener('change', function (e) {
     });
 
     getData('Smartmiles', reportDays, function (data) {
-        addChart('myChart5', data.title, data, function (chart) {
+        addChart('metricChart5', data.title, data, function (chart) {
             setInterval(function () {
                 getData('Smartmiles', reportDays, function (data) {
                     updateChart(chart, data);
@@ -374,7 +384,7 @@ reportDaysDisplay.addEventListener('change', function (e) {
     });
 
     getData('Help', reportDays, function (data) {
-        addChart('myChart6', data.title, data, function (chart) {
+        addChart('metricChart6', data.title, data, function (chart) {
             setInterval(function () {
                 getData('Help', reportDays, function (data) {
                     updateChart(chart, data);
@@ -384,7 +394,7 @@ reportDaysDisplay.addEventListener('change', function (e) {
     });
 
     getData('About Us', reportDays, function (data) {
-        addChart('myChart7', data.title, data, function (chart) {
+        addChart('metricChart7', data.title, data, function (chart) {
             setInterval(function () {
                 getData('About Us', reportDays, function (data) {
                     updateChart(chart, data);
@@ -394,9 +404,19 @@ reportDaysDisplay.addEventListener('change', function (e) {
     });
 
     getData('Contact Us', reportDays, function (data) {
-        addChart('myChart8', data.title, data, function (chart) {
+        addChart('metricChart8', data.title, data, function (chart) {
             setInterval(function () {
                 getData('Contact Us', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
+    });
+
+    getData('Coronavirus FAQs', reportDays, function (data) {
+        addChart('metricChart9', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('Coronavirus FAQs', reportDays, function (data) {
                     updateChart(chart, data);
                 });
             }, refreshTime);
