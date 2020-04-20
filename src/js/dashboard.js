@@ -2,7 +2,8 @@
 var refreshTime = 60 * 10 * 1000;
 
 // How many days to show the report over
-var reportDays = 1;
+var reportDaysDisplay = document.querySelector('.js-days');
+var reportDays = reportDaysDisplay.value;
 
 /*
 * getData
@@ -191,7 +192,7 @@ function addChart(chart, title, data, callback) {
     });
 
     // Set height of chart
-    chartObject.canvas.parentNode.style.height = window.innerHeight/2.3 + 'px';
+    chartObject.canvas.parentNode.style.height = window.innerHeight/2.75 + 'px';
 
     // Return the chart object
     callback(chartObject);
@@ -305,6 +306,101 @@ getData('Contact Us', reportDays, function (data) {
                 updateChart(chart, data);
             });
         }, refreshTime);
+    });
+});
+
+reportDaysDisplay.addEventListener('change', function (e) {
+
+    reportDays = e.target.value;
+
+    getData('Home', reportDays, function (data) {
+        addChart('myChart', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('Home', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
+    });
+
+    getData('Car Insurance', reportDays, function (data) {
+        addChart('myChart1', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('Car Insurance', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
+    });
+
+    getData('Multi Car', reportDays, function (data) {
+        addChart('myChart2', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('Multi Car', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
+    });
+
+    getData('Claims', reportDays, function (data) {
+        addChart('myChart3', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('Claims', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
+    });
+
+    getData('Home Insurance', reportDays, function (data) {
+        addChart('myChart4', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('Home Insurance', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
+    });
+
+    getData('Smartmiles', reportDays, function (data) {
+        addChart('myChart5', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('Smartmiles', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
+    });
+
+    getData('Help', reportDays, function (data) {
+        addChart('myChart6', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('Help', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
+    });
+
+    getData('About Us', reportDays, function (data) {
+        addChart('myChart7', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('About Us', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
+    });
+
+    getData('Contact Us', reportDays, function (data) {
+        addChart('myChart8', data.title, data, function (chart) {
+            setInterval(function () {
+                getData('Contact Us', reportDays, function (data) {
+                    updateChart(chart, data);
+                });
+            }, refreshTime);
+        });
     });
 });
 
