@@ -1,1 +1,0 @@
-# hastingsfeds.github.io
