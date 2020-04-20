@@ -219,8 +219,22 @@ function updateChart(chart, data) {
     chart.update();
 }
 
+var chartObject;
+var chartObject1;
+var chartObject2;
+var chartObject3;
+var chartObject4;
+var chartObject5;
+var chartObject6;
+var chartObject7;
+var chartObject8;
+var chartObject9;
+
 getData('Home', reportDays, function (data) {
     addChart('metricChart', data.title, data, function (chart) {
+
+        chartObject = chart;
+
         setInterval(function () {
             getData('Home', reportDays, function (data) {
                 updateChart(chart, data);
@@ -231,6 +245,9 @@ getData('Home', reportDays, function (data) {
 
 getData('Car Insurance', reportDays, function (data) {
     addChart('metricChart1', data.title, data, function (chart) {
+
+        chartObject1 = chart;
+
         setInterval(function () {
             getData('Car Insurance', reportDays, function (data) {
                 updateChart(chart, data);
@@ -241,6 +258,9 @@ getData('Car Insurance', reportDays, function (data) {
 
 getData('Multi Car', reportDays, function (data) {
     addChart('metricChart2', data.title, data, function (chart) {
+
+        chartObject2 = chart;
+
         setInterval(function () {
             getData('Multi Car', reportDays, function (data) {
                 updateChart(chart, data);
@@ -251,6 +271,9 @@ getData('Multi Car', reportDays, function (data) {
 
 getData('Claims', reportDays, function (data) {
     addChart('metricChart3', data.title, data, function (chart) {
+
+        chartObject3 = chart;
+
         setInterval(function () {
             getData('Claims', reportDays, function (data) {
                 updateChart(chart, data);
@@ -261,6 +284,9 @@ getData('Claims', reportDays, function (data) {
 
 getData('Home Insurance', reportDays, function (data) {
     addChart('metricChart4', data.title, data, function (chart) {
+
+        chartObject4 = chart;
+
         setInterval(function () {
             getData('Home Insurance', reportDays, function (data) {
                 updateChart(chart, data);
@@ -271,6 +297,9 @@ getData('Home Insurance', reportDays, function (data) {
 
 getData('Smartmiles', reportDays, function (data) {
     addChart('metricChart5', data.title, data, function (chart) {
+
+        chartObject5 = chart;
+
         setInterval(function () {
             getData('Smartmiles', reportDays, function (data) {
                 updateChart(chart, data);
@@ -281,6 +310,9 @@ getData('Smartmiles', reportDays, function (data) {
 
 getData('Help', reportDays, function (data) {
     addChart('metricChart6', data.title, data, function (chart) {
+
+        chartObject6 = chart;
+
         setInterval(function () {
             getData('Help', reportDays, function (data) {
                 updateChart(chart, data);
@@ -291,6 +323,9 @@ getData('Help', reportDays, function (data) {
 
 getData('About Us', reportDays, function (data) {
     addChart('metricChart7', data.title, data, function (chart) {
+
+        chartObject7 = chart;
+
         setInterval(function () {
             getData('About Us', reportDays, function (data) {
                 updateChart(chart, data);
@@ -301,6 +336,9 @@ getData('About Us', reportDays, function (data) {
 
 getData('Contact Us', reportDays, function (data) {
     addChart('metricChart8', data.title, data, function (chart) {
+
+        chartObject8 = chart;
+
         setInterval(function () {
             getData('Contact Us', reportDays, function (data) {
                 updateChart(chart, data);
@@ -311,6 +349,9 @@ getData('Contact Us', reportDays, function (data) {
 
 getData('Coronavirus FAQs', reportDays, function (data) {
     addChart('metricChart9', data.title, data, function (chart) {
+
+        chartObject9 = chart;
+
         setInterval(function () {
             getData('Coronavirus FAQs', reportDays, function (data) {
                 updateChart(chart, data);
@@ -324,103 +365,43 @@ reportDaysDisplay.addEventListener('change', function (e) {
     reportDays = e.target.value;
 
     getData('Home', reportDays, function (data) {
-        addChart('metricChart', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('Home', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject, data);
     });
 
     getData('Car Insurance', reportDays, function (data) {
-        addChart('metricChart1', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('Car Insurance', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject1, data);
     });
 
     getData('Multi Car', reportDays, function (data) {
-        addChart('metricChart2', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('Multi Car', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject2, data);
     });
 
     getData('Claims', reportDays, function (data) {
-        addChart('metricChart3', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('Claims', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject3, data);
     });
 
     getData('Home Insurance', reportDays, function (data) {
-        addChart('metricChart4', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('Home Insurance', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject4, data);
     });
 
     getData('Smartmiles', reportDays, function (data) {
-        addChart('metricChart5', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('Smartmiles', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject5, data);
     });
 
     getData('Help', reportDays, function (data) {
-        addChart('metricChart6', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('Help', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject6, data);
     });
 
     getData('About Us', reportDays, function (data) {
-        addChart('metricChart7', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('About Us', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject7, data);
     });
 
     getData('Contact Us', reportDays, function (data) {
-        addChart('metricChart8', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('Contact Us', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject8, data);
     });
 
     getData('Coronavirus FAQs', reportDays, function (data) {
-        addChart('metricChart9', data.title, data, function (chart) {
-            setInterval(function () {
-                getData('Coronavirus FAQs', reportDays, function (data) {
-                    updateChart(chart, data);
-                });
-            }, refreshTime);
-        });
+        updateChart(chartObject9, data);
     });
 });
 
