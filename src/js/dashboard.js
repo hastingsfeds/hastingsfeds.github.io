@@ -45,13 +45,17 @@ function getData(sheetName, dateRange, callback) {
                     data.datasetTitle.push(vals[i][4]);
                     data.datasetTitle.push(vals[i][8]);
                 } else {
-                    // Values
-                    data.datasets[0].push(vals[i][1]);
-                    data.datasets[1].push(vals[i][2]);
-                    data.datasets[2].push(vals[i][3]);
-                    data.datasets[3].push(vals[i][4]);
-                    data.datasets[4].push(vals[i][8]);
-                    data.labels.push(vals[i][6]);
+
+                    if (vals[i] !== undefined) {
+                        // Values
+                        data.datasets[0].push(vals[i][1]);
+                        data.datasets[1].push(vals[i][2]);
+                        data.datasets[2].push(vals[i][3]);
+                        data.datasets[3].push(vals[i][4]);
+                        data.datasets[4].push(vals[i][8]);
+                        data.labels.push(vals[i][6]);
+                    }
+
                 }
             }
 
