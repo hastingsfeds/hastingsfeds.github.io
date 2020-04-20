@@ -54,6 +54,13 @@ function getData(sheetName, dateRange, callback) {
                         data.datasets[3].push(vals[i][4]);
                         data.datasets[4].push(vals[i][8]);
                         data.labels.push(vals[i][6]);
+                    } else {
+                        data.datasets[0].push(0);
+                        data.datasets[1].push(0);
+                        data.datasets[2].push(0);
+                        data.datasets[3].push(0);
+                        data.datasets[4].push(0);
+                        data.labels.push('00:00:00');
                     }
 
                 }
