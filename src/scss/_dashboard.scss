@@ -17,6 +17,21 @@ body {
     width: 250px;
 }
 
+.full-screen {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    svg {
+        width: 30px;
+        height: 30px;
+        fill: #e1e1e1;
+    }
+}
+
 .panel {
     padding: 1em;
     margin: 1em 0;
