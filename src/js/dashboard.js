@@ -5,6 +5,9 @@ var refreshTime = 60 * 10 * 1000;
 var reportDaysDisplay = document.querySelector('.js-days');
 var reportDays = reportDaysDisplay.value;
 
+// Full screen selector
+var fullScreenControl = document.querySelector('.js-full-screen');
+
 /*
 * getData
 *
@@ -36,7 +39,7 @@ function getData(sheetName, dateRange, callback) {
             };
 
             // Start at 1 as we don't need the first array (contains labels)
-            for (var i = 0; i <= dateRange*24; i++) {
+            for (var i = 0; i <= dateRange * 24; i++) {
 
                 if (i === 0) {
                     data.datasetTitle.push(vals[i][1]);
@@ -203,7 +206,7 @@ function addChart(chart, title, data, callback) {
     });
 
     // Set height of chart
-    chartObject.canvas.parentNode.style.height = window.innerHeight/2.75 + 'px';
+    chartObject.canvas.parentNode.style.height = window.innerHeight / 2.75 + 'px';
 
     // Return the chart object
     callback(chartObject);
@@ -228,6 +231,23 @@ function updateChart(chart, data) {
 
     // update the chart
     chart.update();
+}
+
+/*
+* openFullScreen
+*
+* Function to open in full screen
+*/
+function openFullScreen(elem) {
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { // Firefox
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari & Opera
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE/Edge
+        elem.msRequestFullscreen();
+    }
 }
 
 var chartObject;
@@ -414,6 +434,28 @@ reportDaysDisplay.addEventListener('change', function (e) {
     getData('Coronavirus FAQs', reportDays, function (data) {
         updateChart(chartObject9, data);
     });
+});
+
+fullScreenControl.addEventListener('click', function () {
+    openFullScreen(document.documentElement);
+});
+
+window.addEventListener('resize', function () {
+
+    var resizeValue = 2.60;
+
+    setTimeout(function () {
+        chartObject.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+        chartObject1.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+        chartObject2.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+        chartObject3.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+        chartObject4.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+        chartObject5.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+        chartObject6.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+        chartObject7.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+        chartObject8.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+        chartObject9.canvas.parentNode.style.height = window.innerHeight / resizeValue + 'px';
+    }, 500);
 });
 
 var glide = new Glide('.glide', {
