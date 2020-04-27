@@ -11,6 +11,11 @@ body {
 
 .stats-time {
     margin-top: 0;
+    opacity: 0;
+
+    &.active {
+        opacity: 1;
+    }
 }
 
 .logo {
@@ -39,12 +44,114 @@ body {
     box-shadow: rgba(0,0,0,0.3) 0px 0px 20px;
     border: 1px solid #090909;
     border-radius: 5px;
+
+    &--explain {
+        font-size: 14px;
+
+        h2 {
+            text-align: center;
+        }
+
+        &--inner {
+            padding: 2em;
+            background-color: #191919;
+            border: 1px solid #0e0e0e;
+            border-radius: 3px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            h3 {
+                margin: 0;
+            }
+        }
+
+        &-pills {
+            list-style-type: none;
+            padding: 0;
+            margin-top: auto;
+
+            &-item {
+                font-size: 12px;
+                display: inline-block;
+                padding: 5px 10px;
+                border-radius: 3px;
+
+                &--good {
+                    background-color: #209e28;
+                }
+
+                &--moderate {
+                    background-color: #a45c00;
+                }
+
+                &--slow {
+                    background-color: #9e0301;
+                }
+            }
+        }
+    }
 }
 
 .glide {
     cursor: pointer;
+
+    &__controls {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 30px;
+        font-weight: bold;
+
+        &-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            width: 20px;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            background-color: rgba(0,0,0,0.2);
+            transition: width 0.3s, background-color 0.2s;
+
+            &:hover {
+                background-color: rgba(0,0,0,0.5);
+                width: 100px;
+            }
+
+            &-prev {
+               left: 0;
+            }
+
+            &-next {
+                right: 0;
+            }
+
+        }
+    }
+
+    &__slides {
+        margin-top: 0;
+    }
 }
 
-.glide__slides {
-    margin-top: 0;
+.text-tti {
+    color: #36a2ec;
+}
+
+.text-fcp {
+    color: #ff6384;
+}
+
+.text-fmp {
+    color: #41ff63;
+}
+
+.text-si {
+    color: #ff8c1a;
 }

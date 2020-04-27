@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Hastings Direct Performance Dashboard</title>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" href="dist/css/main.min.css">
-	</head>
+<head>
+	<title>Hastings Direct Performance Dashboard</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="dist/css/main.min.css">
+</head>
 <body>
 
 <header class="header">
@@ -18,22 +18,107 @@
 		</svg>
 	</div>
 	<img src="https://www.hastingsdirect.com/img/logos/hastings-direct.svg" class="logo">
-	<h3 class="stats-time">Performance metrics for the past
-	<select class="js-days">
-		<option value="1">1 day</option>
-		<option value="2">2 days</option>
-		<option value="3">3 days</option>
-		<option value="4">4 days</option>
-		<option value="5">5 days</option>
-		<option value="6">6 days</option>
-		<option value="7">7 days</option>
-	</select>
+	<h3 class="stats-time js-slide-time-title">Performance metrics for the past
+		<select class="js-days">
+			<option value="1">1 day</option>
+			<option value="2">2 days</option>
+			<option value="3">3 days</option>
+			<option value="4">4 days</option>
+			<option value="5">5 days</option>
+			<option value="6">6 days</option>
+			<option value="7">7 days</option>
+		</select>
 	</h3>
 </header>
 
 <div class="glide">
+	<div class="glide__controls" data-glide-el="controls">
+		<div class="glide__controls-icons glide__controls-icons-prev" data-glide-dir="<">
+			<span>&langle;</span>
+		</div>
+		<div class="glide__controls-icons glide__controls-icons-next" data-glide-dir=">">
+			<span>&rangle;</span>
+		</div>
+	</div>
 	<div class="glide__track" data-glide-el="track">
 		<ul class="glide__slides">
+			<li class="glide__slide">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col">
+							<div class="panel panel--explain">
+								<div class="row">
+									<div class="col-sm-12">
+										<h2 class="text-center">Performance metrics explained</h2>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-6 mb-3">
+										<div class="panel--explain--inner">
+											<h3 class="text-tti">Time to interactive</h3>
+											<p>The Time to Interactive (TTI) metric measures how long it takes a page to become
+												interactive. "Interactive" is defined as the point where:</p>
+											<ul>
+												<li>The page has displayed useful content, which is measured with First
+													Contentful Paint.
+												</li>
+												<li>Event handlers are registered for most visible page elements.</li>
+												<li>The page responds to user interactions within 50 milliseconds.</li>
+											</ul>
+											<p class="mb-4">Some sites optimize content visibility at the expense of interactivity. This can
+												create a frustrating user experience. The site appears to be ready, but when the
+												user tries to interact with it, nothing happens.</p>
+											<ul class="panel--explain-pills">
+												<li class="panel--explain-pills-item panel--explain-pills-item--good">0 - 5.2 Fast</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">5.3 - 7.3 Moderate</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--slow">over 7.3 Slow</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-sm-6 mb-3">
+										<div class="panel--explain--inner">
+											<h3 class="text-fcp">First Contentful Paint</h3>
+											<p class="mb-4">First Contentful Paint (FCP) measures the time from navigation to the time when
+												the browser renders the first bit of content from the DOM. This is an important
+												milestone for users because it provides feedback that the page is actually
+												loading.</p>
+											<ul class="panel--explain-pills">
+												<li class="panel--explain-pills-item panel--explain-pills-item--good">0 - 2 Fast</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">2 - 4 Moderate</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--slow">over 4 Slow</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-sm-6 mb-3">
+										<div class="panel--explain--inner">
+											<h3 class="text-fmp">First Meaningful Paint</h3>
+											<p class="mb-4">First Meaningful Paint is essentially the paint after which the biggest
+												above-the-fold layout change has happened, and web fonts have loaded.</p>
+											<ul class="panel--explain-pills">
+												<li class="panel--explain-pills-item panel--explain-pills-item--good">0 - 2 Fast</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">2 - 4 Moderate</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--slow">over 4 Slow</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-sm-6 mb-3">
+										<div class="panel--explain--inner">
+											<h3 class="text-si">Speed Index</h3>
+											<p class="mb-4">Speed Index measures how quickly all above-the-fold content is painted on screen. The earlier the pixels are painted, the better you score on metric. Users want an experience where most of the content is shown on the screen during the first few moments of initiating the page load. Loading more content earlier makes your end user feel like the website is loading quickly, which contributes to a positive user experience. Therefore, the lower your Speed Index, the better.</p>
+											<ul class="panel--explain-pills">
+												<li class="panel--explain-pills-item panel--explain-pills-item--good">0 - 4.3 Fast</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">4.4 - 5.8 Moderate</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--slow">over 5.8 Slow</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
 			<li class="glide__slide">
 				<div class="container-fluid">
 					<div class="row">
