@@ -1,7 +1,17 @@
+$full-screen: '.full-screen';
+$light-theme: '.light-theme';
+$dark-color: #e1e1e1;
+$light-color: #333333;
+
 body {
     background-color: #0e0e0e;
     color: #e1e1e1;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    &#{$light-theme} {
+        background-color: white;
+        color: #333333;
+    }
 }
 
 .header {
@@ -23,17 +33,50 @@ body {
 }
 
 .full-screen {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+    &--open {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
 
-    svg {
-        width: 30px;
-        height: 30px;
-        fill: #e1e1e1;
+        svg {
+            width: 30px;
+            height: 30px;
+            fill: $dark-color;
+
+            #{$light-theme} & {
+                fill: $light-color;
+            }
+        }
+
+        #{$full-screen} & {
+            display: none;
+        }
+    }
+
+    &--close {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        display: none;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+            width: 30px;
+            height: 30px;
+            fill: $dark-color;
+
+            #{$light-theme} & {
+                fill: $light-color;
+            }
+        }
+
+        #{$full-screen} & {
+            display: flex;
+        }
     }
 }
 
@@ -42,8 +85,14 @@ body {
     margin: 1em 0;
     background-color: #202020;
     box-shadow: rgba(0,0,0,0.3) 0px 0px 20px;
-    border: 1px solid #090909;
+    border: 1px solid $light-color;
     border-radius: 5px;
+
+    #{$light-theme} & {
+        background-color: #f1f1f1;
+        box-shadow: none;
+        border: 1px solid $dark-color;
+    }
 
     &--explain {
         font-size: 14px;
@@ -55,11 +104,16 @@ body {
         &--inner {
             padding: 2em;
             background-color: #191919;
-            border: 1px solid #0e0e0e;
+            border: 1px solid $light-color;
             border-radius: 3px;
             height: 100%;
             display: flex;
             flex-direction: column;
+
+            #{$light-theme} & {
+                background-color: #e1e1e1;
+                border: 1px solid $dark-color;
+            }
 
             h3 {
                 margin: 0;
@@ -76,6 +130,7 @@ body {
                 display: inline-block;
                 padding: 5px 10px;
                 border-radius: 3px;
+                color: #ffffff;
 
                 &--good {
                     background-color: #209e28;
@@ -116,6 +171,7 @@ body {
             top: 50%;
             transform: translateY(-50%);
             z-index: 999;
+            color: #ffffff;
             background-color: rgba(0,0,0,0.2);
             transition: width 0.3s, background-color 0.2s;
 
@@ -149,9 +205,127 @@ body {
 }
 
 .text-fmp {
-    color: #41ff63;
+    color: #2ba946;
 }
 
 .text-si {
     color: #ff8c1a;
+}
+
+.toggle-switch-container {
+    position: absolute;
+    z-index: 999999;
+    top: 2em;
+    left: 2em;
+    width: 130px;
+}
+
+.toggle-switch-title {
+    position: absolute;
+    left: 50%;
+    bottom: 2.5em;
+    transform: translateX(-50%);
+
+    color: $dark-color;
+    transition: color 0.3s ease-in-out;
+
+    #{$light_theme} & {
+        color: $light-color;
+        transition: color 0.3s ease-in-out;
+    }
+}
+
+.toggle-switch {
+    font-size: 12px;
+    color: $dark-color;
+
+    transition: color 0.3s ease-in-out;
+
+    #{$light_theme} & {
+        color: $light-color;
+    }
+}
+
+.toggle-switch-dark {
+    float: right;
+}
+
+.toggle-switch-light {
+    float: left;
+}
+
+.onoffswitch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 50px;
+    border: 1px solid $dark-color;
+    transition: border 0.3s ease-in-out;
+
+    #{$light_theme} & {
+        border: 1px solid $light-color;
+    }
+}
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 25px;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+.onoffswitch-inner:before {
+    content: "";
+    padding-left: 10px;
+    background-color: transparent;
+    color: $light-color;
+}
+.onoffswitch-inner:after {
+    content: "";
+    padding-right: 10px;
+    background-color: transparent;
+    color: $light-color;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block;
+    width: 21px;
+    margin: 3px;
+    background: $dark-color;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 23px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+
+    #{$light_theme} & {
+        background: $light-color;
+    }
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0;
 }

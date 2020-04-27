@@ -7,7 +7,15 @@ var reportDaysDisplay = document.querySelector('.js-days');
 var reportDays = reportDaysDisplay.value;
 
 // Full screen selector
-var fullScreenControl = document.querySelector('.js-full-screen');
+var fullScreenOpen = document.querySelector('.js-full-screen-open');
+var fullScreenClose = document.querySelector('.js-full-screen-close');
+
+// Theme colours
+var body = document.body;
+var themeGrideLines = body.classList.contains('light-theme') ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
+var themeFontColour = body.classList.contains('light-theme') ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.6)';
+var toggleSwitch = document.querySelector('.js-toggle-switch');
+var toggleSwitchInput = toggleSwitch.querySelector('.onoffswitch-checkbox');
 
 /*
 * getData
@@ -151,10 +159,10 @@ function addChart(chart, title, data, callback) {
                     data: data.datasets[4],
                     fill: false,
                     borderColor: [
-                        'rgb(255,247,55)',
+                        'rgb(206,198,53)',
                     ],
-                    pointBackgroundColor: 'rgba(255,247,55, 1)',
-                    pointBorderColor: 'rgba(255,247,55, 1)',
+                    pointBackgroundColor: 'rgb(206,198,53)',
+                    pointBorderColor: 'rgb(206,198,53)',
                     pointRadius: 1,
                     borderWidth: 2
                 }
@@ -164,7 +172,7 @@ function addChart(chart, title, data, callback) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        fontColor: '#6e6e6e',
+                        fontColor: themeFontColour,
                         beginAtZero: true,
                         suggestedMin: 0,
                         suggestedMax: 3,
@@ -172,14 +180,14 @@ function addChart(chart, title, data, callback) {
                     },
                     gridLines: {
                         display: true,
-                        color: "#262626"
+                        color: themeGrideLines
                     },
                 }],
                 xAxes: [
                     {
                         id: 'xAxis1',
                         ticks: {
-                            fontColor: '#6e6e6e',
+                            fontColor: themeFontColour,
                             reverse: true,
                             autoSkip: true,
                             callback: function (label) {
@@ -188,16 +196,17 @@ function addChart(chart, title, data, callback) {
                         },
                         gridLines: {
                             display: true,
-                            color: "#262626"
+                            color: themeGrideLines
                         },
                     },
                     {
                         id: 'xAxis2',
                         gridLines: {
                             drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            color: themeGrideLines
                         },
                         ticks: {
-                            fontColor: '#cbcbcb',
+                            fontColor: themeFontColour,
                             maxRotation: 0,
                             autoSkip: false,
                             reverse: true,
@@ -213,14 +222,14 @@ function addChart(chart, title, data, callback) {
             legend: {
                 text: 'something',
                 labels: {
-                    fontColor: '#6e6e6e'
+                    fontColor: themeFontColour
                 }
             },
             title: {
                 display: true,
                 text: title,
                 fontSize: 18,
-                fontColor: 'white'
+                fontColor: themeFontColour
             },
             animation: {
                 duration: 0
@@ -247,6 +256,19 @@ function updateChart(chart, data) {
     // Set the new labels
     chart.data.labels = data.labels;
 
+    themeGrideLines = body.classList.contains('light-theme') ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
+    themeFontColour = body.classList.contains('light-theme') ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.6)';
+
+    // Set new colours
+    chart.options.scales.yAxes[0].ticks.fontColor = themeFontColour;
+    chart.options.scales.yAxes[0].gridLines.color = themeGrideLines;
+    chart.options.scales.xAxes[0].ticks.fontColor = themeFontColour;
+    chart.options.scales.xAxes[0].gridLines.color = themeGrideLines;
+    chart.options.scales.xAxes[1].ticks.fontColor = themeFontColour;
+    chart.options.scales.xAxes[1].gridLines.color = themeGrideLines;
+    chart.options.legend.labels.fontColor = themeFontColour;
+    chart.options.title.fontColor = themeFontColour;
+
     for (var i = 0; i < chart.data.datasets.length; i++) {
 
         // Push the new data to the chart
@@ -272,6 +294,18 @@ function openFullScreen(elem) {
     } else if (elem.msRequestFullscreen) { // IE/Edge
         elem.msRequestFullscreen();
     }
+
+    body.classList.add('full-screen');
+}
+
+/*
+* closeFullScreen
+*
+* Function to open in full screen
+*/
+function closeFullScreen() {
+    document.exitFullscreen();
+    body.classList.remove('full-screen');
 }
 
 var chartObject;
@@ -416,9 +450,10 @@ getData('Coronavirus FAQs', reportDays, function (data) {
 });
 
 reportDaysDisplay.addEventListener('change', function (e) {
+    updateAllCharts(e.target.value);
+});
 
-    reportDays = e.target.value;
-
+function updateAllCharts(reportDays) {
     getData('Home', reportDays, function (data) {
         updateChart(chartObject, data);
     });
@@ -458,10 +493,14 @@ reportDaysDisplay.addEventListener('change', function (e) {
     getData('Coronavirus FAQs', reportDays, function (data) {
         updateChart(chartObject9, data);
     });
+}
+
+fullScreenOpen.addEventListener('click', function () {
+    openFullScreen(document.documentElement);
 });
 
-fullScreenControl.addEventListener('click', function () {
-    openFullScreen(document.documentElement);
+fullScreenClose.addEventListener('click', function () {
+    closeFullScreen();
 });
 
 window.addEventListener('resize', function () {
@@ -500,3 +539,16 @@ glide.on("run", function () {
 
 // Init the slider
 glide.mount();
+
+toggleSwitchInput.addEventListener('change', function (e) {
+
+    reportDays = reportDaysDisplay.value;
+
+    if (toggleSwitchInput.checked) {
+        body.classList.remove('light-theme');
+        updateAllCharts(reportDays);
+    } else {
+        body.classList.add('light-theme');
+        updateAllCharts(reportDays);
+    }
+});

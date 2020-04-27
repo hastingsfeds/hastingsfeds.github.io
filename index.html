@@ -7,15 +7,38 @@
 </head>
 <body>
 
+<div class="toggle-switch-container">
+	<small class="toggle-switch toggle-switch-dark">Dark</small>
+	<div class="onoffswitch js-toggle-switch">
+		<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffswitch" checked>
+		<label class="onoffswitch-label" for="onoffswitch">
+			<span class="onoffswitch-inner"></span>
+			<span class="onoffswitch-switch"></span>
+		</label>
+	</div>
+	<small class="toggle-switch toggle-switch-light">Light</small>
+</div>
+
 <header class="header">
-	<div class="full-screen js-full-screen">
-		Full screen
-		<svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
-			<path d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z"></path>
-			<path d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z"></path>
-			<path d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z"></path>
-			<path d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z"></path>
-		</svg>
+	<div class="js-full-screen">
+		<div class="full-screen--close js-full-screen-close">
+			Exit full screen
+			<svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+				<path d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z"></path>
+				<path d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z"></path>
+				<path d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z"></path>
+				<path d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z"></path>
+			</svg>
+		</div>
+		<div class="full-screen--open js-full-screen-open">
+			Full screen
+			<svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+				<path d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z"></path>
+				<path d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z"></path>
+				<path d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z"></path>
+				<path d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z"></path>
+			</svg>
+		</div>
 	</div>
 	<img src="https://www.hastingsdirect.com/img/logos/hastings-direct.svg" class="logo">
 	<h3 class="stats-time js-slide-time-title">Performance metrics for the past
@@ -57,7 +80,8 @@
 									<div class="col-sm-6 mb-3">
 										<div class="panel--explain--inner">
 											<h3 class="text-tti">Time to interactive</h3>
-											<p>The Time to Interactive (TTI) metric measures how long it takes a page to become
+											<p>The Time to Interactive (TTI) metric measures how long it takes a page to
+												become
 												interactive. "Interactive" is defined as the point where:</p>
 											<ul>
 												<li>The page has displayed useful content, which is measured with First
@@ -66,50 +90,87 @@
 												<li>Event handlers are registered for most visible page elements.</li>
 												<li>The page responds to user interactions within 50 milliseconds.</li>
 											</ul>
-											<p class="mb-4">Some sites optimize content visibility at the expense of interactivity. This can
-												create a frustrating user experience. The site appears to be ready, but when the
+											<p class="mb-4">Some sites optimize content visibility at the expense of
+												interactivity. This can
+												create a frustrating user experience. The site appears to be ready, but
+												when the
 												user tries to interact with it, nothing happens.</p>
 											<ul class="panel--explain-pills">
-												<li class="panel--explain-pills-item panel--explain-pills-item--good">0 - 5.2 Fast</li>
-												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">5.3 - 7.3 Moderate</li>
-												<li class="panel--explain-pills-item panel--explain-pills-item--slow">over 7.3 Slow</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--good">0
+													- 5.2 Fast
+												</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">
+													5.3 - 7.3 Moderate
+												</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--slow">
+													over 7.3 Slow
+												</li>
 											</ul>
 										</div>
 									</div>
 									<div class="col-sm-6 mb-3">
 										<div class="panel--explain--inner">
 											<h3 class="text-fcp">First Contentful Paint</h3>
-											<p class="mb-4">First Contentful Paint (FCP) measures the time from navigation to the time when
-												the browser renders the first bit of content from the DOM. This is an important
-												milestone for users because it provides feedback that the page is actually
+											<p class="mb-4">First Contentful Paint (FCP) measures the time from
+												navigation to the time when
+												the browser renders the first bit of content from the DOM. This is an
+												important
+												milestone for users because it provides feedback that the page is
+												actually
 												loading.</p>
 											<ul class="panel--explain-pills">
-												<li class="panel--explain-pills-item panel--explain-pills-item--good">0 - 2 Fast</li>
-												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">2 - 4 Moderate</li>
-												<li class="panel--explain-pills-item panel--explain-pills-item--slow">over 4 Slow</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--good">0
+													- 2 Fast
+												</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">
+													2 - 4 Moderate
+												</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--slow">
+													over 4 Slow
+												</li>
 											</ul>
 										</div>
 									</div>
 									<div class="col-sm-6 mb-3">
 										<div class="panel--explain--inner">
 											<h3 class="text-fmp">First Meaningful Paint</h3>
-											<p class="mb-4">First Meaningful Paint is essentially the paint after which the biggest
-												above-the-fold layout change has happened, and web fonts have loaded.</p>
+											<p class="mb-4">First Meaningful Paint is essentially the paint after which
+												the biggest
+												above-the-fold layout change has happened, and web fonts have
+												loaded.</p>
 											<ul class="panel--explain-pills">
-												<li class="panel--explain-pills-item panel--explain-pills-item--good">0 - 2 Fast</li>
-												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">2 - 4 Moderate</li>
-												<li class="panel--explain-pills-item panel--explain-pills-item--slow">over 4 Slow</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--good">0
+													- 2 Fast
+												</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">
+													2 - 4 Moderate
+												</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--slow">
+													over 4 Slow
+												</li>
 											</ul>
 										</div>
 									</div>
 									<div class="col-sm-6 mb-3">
 										<div class="panel--explain--inner">
 											<h3 class="text-si">Speed Index</h3>
-											<p class="mb-4">Speed Index measures how quickly all above-the-fold content is painted on screen. The earlier the pixels are painted, the better you score on metric. Users want an experience where most of the content is shown on the screen during the first few moments of initiating the page load. Loading more content earlier makes your end user feel like the website is loading quickly, which contributes to a positive user experience. Therefore, the lower your Speed Index, the better.</p>
+											<p class="mb-4">Speed Index measures how quickly all above-the-fold content
+												is painted on screen. The earlier the pixels are painted, the better you
+												score on metric. Users want an experience where most of the content is
+												shown on the screen during the first few moments of initiating the page
+												load. Loading more content earlier makes your end user feel like the
+												website is loading quickly, which contributes to a positive user
+												experience. Therefore, the lower your Speed Index, the better.</p>
 											<ul class="panel--explain-pills">
-												<li class="panel--explain-pills-item panel--explain-pills-item--good">0 - 4.3 Fast</li>
-												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">4.4 - 5.8 Moderate</li>
-												<li class="panel--explain-pills-item panel--explain-pills-item--slow">over 5.8 Slow</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--good">0
+													- 4.3 Fast
+												</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--moderate">
+													4.4 - 5.8 Moderate
+												</li>
+												<li class="panel--explain-pills-item panel--explain-pills-item--slow">
+													over 5.8 Slow
+												</li>
 											</ul>
 										</div>
 									</div>
