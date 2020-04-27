@@ -2,6 +2,7 @@
 var refreshTime = 60 * 10 * 1000;
 
 // How many days to show the report over
+var slideTimeTitle = document.querySelector('.js-slide-time-title');
 var reportDaysDisplay = document.querySelector('.js-days');
 var reportDays = reportDaysDisplay.value;
 
@@ -486,5 +487,16 @@ var glide = new Glide('.glide', {
     animationDuration: 1000,
     hoverpause: true
 });
+
+glide.on("run", function () {
+    if (glide.index !== 0) {
+        if (!slideTimeTitle.classList.contains('active')) {
+            slideTimeTitle.classList.add('active');
+        }
+    } else {
+        slideTimeTitle.classList.remove('active');
+    }
+});
+
 // Init the slider
 glide.mount();
