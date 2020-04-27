@@ -189,6 +189,50 @@ body {
             }
 
         }
+
+        &--bottom {
+            position: fixed;
+            bottom: 10px;
+            z-index: 999999;
+            left: 50%;
+            transform: translateX(-50%);
+
+            span {
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                margin-right: 5px;
+                background-color: transparent;
+                border: 2px solid $dark-color;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background-color 0.2s;
+
+                #{$light-theme} & {
+                    border: 2px solid $light-color;
+                }
+
+                &:hover {
+                    background-color: lighten($dark-color, 5%);
+                    border: 2px solid lighten($dark-color, 5%);
+
+                    #{$light-theme} & {
+                        background-color: darken($light-color, 5%);
+                        border: 2px solid darken($light-color, 5%);
+                    }
+                }
+
+                &.glide__bullet--active {
+                    background-color: lighten($dark-color, 15%);
+                    border: 2px solid $dark-color;
+
+                    #{$light-theme} & {
+                        background-color: darken($light-color, 15%);
+                        border: 2px solid $light-color;
+                    }
+                }
+            }
+        }
     }
 
     &__slides {
