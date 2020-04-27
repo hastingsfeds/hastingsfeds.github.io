@@ -50,13 +50,12 @@ function getData(sheetName, dateRange, callback) {
                 } else {
 
                     if (vals[i] !== undefined) {
-                        // Values
                         data.datasets[0].push(vals[i][1]);
                         data.datasets[1].push(vals[i][2]);
                         data.datasets[2].push(vals[i][3]);
                         data.datasets[3].push(vals[i][4]);
                         data.datasets[4].push(vals[i][8]);
-                        data.labels.push(vals[i][6]);
+                        data.labels.push(vals[i][6] + ' ' + vals[i][5]);
                     } else {
                         data.datasets[0].push(0);
                         data.datasets[1].push(0);
@@ -175,16 +174,40 @@ function addChart(chart, title, data, callback) {
                         color: "#262626"
                     },
                 }],
-                xAxes: [{
-                    ticks: {
-                        fontColor: '#6e6e6e',
-                        reverse: true
+                xAxes: [
+                    {
+                        id: 'xAxis1',
+                        ticks: {
+                            fontColor: '#6e6e6e',
+                            reverse: true,
+                            autoSkip: true,
+                            callback: function (label) {
+                                return label.substring(0, 5);
+                            }
+                        },
+                        gridLines: {
+                            display: true,
+                            color: "#262626"
+                        },
                     },
-                    gridLines: {
-                        display: true,
-                        color: "#262626"
-                    },
-                }]
+                    {
+                        id: 'xAxis2',
+                        gridLines: {
+                            drawOnChartArea: false, // only want the grid lines for one axis to show up
+                        },
+                        ticks: {
+                            fontColor: '#cbcbcb',
+                            maxRotation: 0,
+                            autoSkip: false,
+                            reverse: true,
+                            callback: function (label) {
+                                if (label.substring(0, 3) === '00:') {
+                                    return label.substring(9) + ' →';
+                                }
+                            }
+                        }
+                    }
+                ]
             },
             legend: {
                 text: 'something',

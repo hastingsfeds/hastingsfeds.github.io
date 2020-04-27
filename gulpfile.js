@@ -56,6 +56,9 @@ gulp.task('vendors', function() {
 
     gulp.src(['node_modules/chart.js/dist/**'])
         .pipe(gulp.dest('src/vendor/chart'));
+
+    gulp.src(['node_modules/chartjs-plugin-datalabels/dist/**'])
+        .pipe(gulp.dest('src/vendor/chart-datalabels'));
 });
 
 // Default task
