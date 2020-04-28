@@ -96,13 +96,14 @@ body {
 
     &--explain {
         font-size: 14px;
+        padding-top: 2em;
 
         h2 {
             text-align: center;
         }
 
         &--inner {
-            padding: 2em;
+            padding: 1em 2em;
             background-color: #191919;
             border: 1px solid $light-color;
             border-radius: 3px;
