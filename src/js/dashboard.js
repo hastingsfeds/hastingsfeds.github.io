@@ -256,6 +256,24 @@ function updateChart(chart, data) {
     // Set the new labels
     chart.data.labels = data.labels;
 
+    for (var i = 0; i < chart.data.datasets.length; i++) {
+
+        // Push the new data to the chart
+        chart.data.datasets[i].data = data.datasets[i];
+    }
+
+    // update the chart
+    chart.update();
+}
+
+
+/*
+* updateChartColours
+*
+* Function to update the chart with new colours
+*/
+function updateChartColours(chart) {
+
     themeGrideLines = body.classList.contains('light-theme') ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
     themeFontColour = body.classList.contains('light-theme') ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.6)';
 
@@ -268,12 +286,6 @@ function updateChart(chart, data) {
     chart.options.scales.xAxes[1].gridLines.color = themeGrideLines;
     chart.options.legend.labels.fontColor = themeFontColour;
     chart.options.title.fontColor = themeFontColour;
-
-    for (var i = 0; i < chart.data.datasets.length; i++) {
-
-        // Push the new data to the chart
-        chart.data.datasets[i].data = data.datasets[i];
-    }
 
     // update the chart
     chart.update();
@@ -546,9 +558,27 @@ toggleSwitchInput.addEventListener('change', function (e) {
 
     if (toggleSwitchInput.checked) {
         body.classList.remove('light-theme');
-        updateAllCharts(reportDays);
+        updateChartColours(chartObject);
+        updateChartColours(chartObject1);
+        updateChartColours(chartObject2);
+        updateChartColours(chartObject3);
+        updateChartColours(chartObject4);
+        updateChartColours(chartObject5);
+        updateChartColours(chartObject6);
+        updateChartColours(chartObject7);
+        updateChartColours(chartObject8);
+        updateChartColours(chartObject9);
     } else {
         body.classList.add('light-theme');
-        updateAllCharts(reportDays);
+        updateChartColours(chartObject);
+        updateChartColours(chartObject1);
+        updateChartColours(chartObject2);
+        updateChartColours(chartObject3);
+        updateChartColours(chartObject4);
+        updateChartColours(chartObject5);
+        updateChartColours(chartObject6);
+        updateChartColours(chartObject7);
+        updateChartColours(chartObject8);
+        updateChartColours(chartObject9);
     }
 });
