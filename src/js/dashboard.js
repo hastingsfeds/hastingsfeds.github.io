@@ -43,6 +43,7 @@ function getData(sheetName, dateRange, callback) {
                     2: [],
                     3: [],
                     4: [],
+                    5: []
                 },
                 title: vals[1][0]
             };
@@ -56,6 +57,7 @@ function getData(sheetName, dateRange, callback) {
                     data.datasetTitle.push(vals[i][3]);
                     data.datasetTitle.push(vals[i][4]);
                     data.datasetTitle.push(vals[i][8]);
+                    data.datasetTitle.push(vals[i][9]);
                 } else {
 
                     if (vals[i] !== undefined) {
@@ -64,6 +66,7 @@ function getData(sheetName, dateRange, callback) {
                         data.datasets[2].push(vals[i][3]);
                         data.datasets[3].push(vals[i][4]);
                         data.datasets[4].push(vals[i][8]);
+                        data.datasets[5].push(vals[i][9]);
                         data.labels.push(vals[i][6] + ' ' + vals[i][5]);
                     } else {
                         data.datasets[0].push(0);
@@ -71,6 +74,7 @@ function getData(sheetName, dateRange, callback) {
                         data.datasets[2].push(0);
                         data.datasets[3].push(0);
                         data.datasets[4].push(0);
+                        data.datasets[5].push(0);
                         data.labels.push('00:00:00');
                     }
 
@@ -163,6 +167,18 @@ function addChart(chart, title, data, callback) {
                     ],
                     pointBackgroundColor: 'rgb(206,198,53)',
                     pointBorderColor: 'rgb(206,198,53)',
+                    pointRadius: 1,
+                    borderWidth: 2
+                },
+                {
+                    label: data.datasetTitle[5],
+                    data: data.datasets[5],
+                    fill: false,
+                    borderColor: [
+                        'rgb(206,11,36)',
+                    ],
+                    pointBackgroundColor: 'rgb(206,11,36)',
+                    pointBorderColor: 'rgb(206,11,36)',
                     pointRadius: 1,
                     borderWidth: 2
                 }
